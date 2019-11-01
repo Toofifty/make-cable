@@ -1,0 +1,60 @@
+$block: '.selected';
+
+#{$block} {
+    width: 128px;
+    height: 128px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column-reverse;
+    // border: 2px solid transparent;
+    cursor: pointer;
+    background: #fff;
+    z-index: 0;
+
+    transition: transform 0.25s, background 0.25s, border-color 0.25s;
+    overflow: hidden;
+    position: relative;
+
+    &__label {
+        color: #bbb;
+        margin-bottom: 8px;
+        user-select: none;
+        text-align: center;
+    }
+
+    &__empty {
+        color: #eee;
+        font-size: 64px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        user-select: none;
+    }
+
+    &__icon {
+        color: #094074;
+        font-size: 64px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        z-index: -1;
+    }
+
+    &--active {
+        transform: scale(1.1);
+        background: #5adbff;
+        border-color: #3fc5eb;
+
+        #{$block}__label {
+            color: #fff;
+        }
+
+        #{$block}__empty {
+            color: #fff;
+        }
+    }
+}
