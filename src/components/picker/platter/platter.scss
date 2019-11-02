@@ -55,4 +55,16 @@
         color: #094074;
         font-size: 64px;
     }
+
+    &__option-color {
+        background: var(--color, red);
+        height: 32px;
+        width: 32px;
+        border-radius: 4px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid #141B1F;
+    }
 }

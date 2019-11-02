@@ -1,0 +1,24 @@
+.top-section {
+    position: relative;
+
+    >div {
+        position: absolute;
+    }
+
+    &__connector-a {
+        left: 50%;
+        transform: translate(-50%, 0) rotate(180deg);
+    }
+
+    &__heatshrink {
+        left: 50%;
+        transform: translate(-50%, 50px) rotate(180deg);
+        fill: var(--fill-color, red);
+    }
+
+    &__cable {
+        left: 50%;
+        transform: translate(-50%, 150px);
+        z-index: -1;
+    }
+}

@@ -1,7 +1,13 @@
-import React, { useReducer, createContext, useEffect } from 'react';
+import React, { useReducer, createContext, useEffect, useState } from 'react';
+import cx from 'classnames';
 import { CablerAction, CablerState, Store } from '../../utils/types';
-import Graphic from '../graphic/graphic';
+import Graphic from '../graphic';
 import Form from '../form';
+import reducer from './reducer';
+import BackgroundColorPicker from '../../components/background-color-picker';
+
+import { ReactComponent as Ruler } from '../../data/ruler.svg';
+
 import './cabler.scss';
 
 interface CablerProps {
@@ -9,20 +15,6 @@ interface CablerProps {
     initialState?: CablerState;
     onUpdate?: (state: CablerState) => void;
 }
-
-const reducer = (
-    { parts, notes }: CablerState,
-    { type, payload }: CablerAction
-): CablerState => {
-    switch (type) {
-        case 'SET_PART':
-            return {
-                parts: { ...parts, [payload.part]: payload.option },
-                notes,
-            };
-    }
-    return { parts, notes };
-};
 
 const getDefaultState = (): CablerState => ({
     parts: {},
@@ -41,15 +33,32 @@ const Cabler: React.FC<CablerProps> = ({
 }) => {
     const [state, dispatch] = useReducer(
         reducer,
-        initialState,
-        getDefaultState
+        initialState || getDefaultState()
     );
 
+    const [backgroundColor, setBackgroundColor] = useState('blue');
+
     useEffect(() => onUpdate && onUpdate(state), [onUpdate, state]);
+    useEffect(
+        () =>
+            initialState &&
+            dispatch({ type: 'SET_ALL', payload: initialState }),
+        [initialState]
+    );
 
     return (
         <CablerContext.Provider value={{ state, dispatch }}>
-            <div className="cabler">
+            <div className={cx('cabler', `cabler--${backgroundColor}`)}>
+                <BackgroundColorPicker
+                    selected={backgroundColor}
+                    onSelect={setBackgroundColor}
+                />
+                <Ruler
+                    style={{
+                        transform: 'scale(0.5)',
+                        transformOrigin: '0 0 0',
+                    }}
+                />
                 <Graphic />
                 <Form allOptions={allOptions} />
             </div>

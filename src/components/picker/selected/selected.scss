@@ -3,11 +3,14 @@ $block: '.selected';
 #{$block} {
     width: 128px;
     height: 128px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 1px 1px #0940740F,
+        0 2px 2px #0940740F,
+        0 4px 4px #0940740F,
+        0 8px 8px #0940740F,
+        0 16px 16px #0940740F;
+    border-radius: 4px;
     display: flex;
     flex-direction: column-reverse;
-    // border: 2px solid transparent;
     cursor: pointer;
     background: #fff;
     z-index: 0;
@@ -17,9 +20,10 @@ $block: '.selected';
     position: relative;
 
     &__label {
-        color: #bbb;
+        color: #094074;
         margin-bottom: 8px;
         user-select: none;
+        pointer-events: none;
         text-align: center;
     }
 
@@ -42,19 +46,27 @@ $block: '.selected';
         top: 50%;
         transform: translate(-50%, -50%) scale(0.8);
         z-index: -1;
+        transition: transform 0.25s;
+    }
+
+    &__color {
+        background: var(--color, red);
+        height: 48px;
+        width: 48px;
+        border-radius: 4px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid #141B1F;
     }
 
     &--active {
         transform: scale(1.1);
-        background: #5adbff;
-        border-color: #3fc5eb;
+        background: #fafafa;
 
-        #{$block}__label {
-            color: #fff;
-        }
-
-        #{$block}__empty {
-            color: #fff;
+        #{$block}__icon {
+            transform: translate(-50%, -50%) scale(1.2);
         }
     }
 }

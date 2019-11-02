@@ -1,8 +1,10 @@
 .form {
     display: flex;
     flex-wrap: wrap;
+    align-content: center;
     justify-content: space-evenly;
     flex: 1;
     padding: 16px;
-    background: #5adbff;
+
+    overflow: auto;
 }

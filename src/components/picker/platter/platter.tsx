@@ -24,15 +24,22 @@ const Platter: React.FC<PlatterProps> = ({ options, selected, onSelect }) => {
                             : option.value
                     }
                 >
-                    <span className="platter__option-icon">
-                        {option.icon ? (
-                            <option.icon />
-                        ) : option.value.units ? (
-                            `${option.value.value}${option.value.units}`
-                        ) : (
-                            '?'
-                        )}
-                    </span>
+                    {option.color ? (
+                        <div
+                            className="platter__option-color"
+                            style={{ ['--color' as any]: option.color }}
+                        />
+                    ) : (
+                        <span className="platter__option-icon">
+                            {option.icon ? (
+                                <option.icon />
+                            ) : option.value.units ? (
+                                `${option.value.value}${option.value.units}`
+                            ) : (
+                                '?'
+                            )}
+                        </span>
+                    )}
                     <label className="platter__option-label">
                         {option.label}
                     </label>

@@ -3,4 +3,27 @@
     flex-direction: row;
 
     min-height: 100%;
+    max-height: 100vh;
+    overflow: auto;
+    transition: background 0.25s;
+
+    &--blue {
+        background: #5adbff;
+    }
+
+    &--white {
+        background: #ffffff;
+    }
+
+    &--orange {
+        background: #fe9000;
+    }
+
+    &--black {
+        background: #242525;
+
+        .form {
+            background: #e3e5ec;
+        }
+    }
 }

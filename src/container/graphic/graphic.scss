@@ -1,20 +1,13 @@
 .graphic {
-    background: #fe9000;
     flex: 1;
     min-width: 12px;
+    position: relative;
+    height: 100vh;
 
     overflow: hidden;
     position: relative;
 
-    &::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 200%;
-        background: #FFDD4A;
-        transform: rotate(30deg);
-        opacity: 0.1;
-        left: -50%;
-        top: -50%;
-    }
+    transform: scale(0.5);
+    transform: scale(var(--scale, 0.5));
+    transform-origin: center top;
 }

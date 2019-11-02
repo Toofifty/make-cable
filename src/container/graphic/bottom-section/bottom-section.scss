@@ -1,0 +1,20 @@
+.bottom-section {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+
+    >div {
+        position: absolute;
+        bottom: 0;
+    }
+
+    &__connector-b {
+        left: 50%;
+        transform: translate(-50%, 50px);
+    }
+
+    &__heatshrink {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}

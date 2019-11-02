@@ -17,17 +17,24 @@ const Selected: React.FC<SelectedProps> = ({ value, active }) => (
         })}
     >
         {value ? (
-            <span className="selected__icon">
-                {value.icon ? (
-                    <value.icon />
-                ) : value.value.units ? (
-                    `${value.value.value}${value.value.units}`
-                ) : (
-                    '?'
-                )}
-            </span>
+            value.color ? (
+                <div
+                    className="selected__color"
+                    style={{ ['--color' as any]: value.color }}
+                />
+            ) : (
+                <span className="selected__icon">
+                    {value.icon ? (
+                        <value.icon />
+                    ) : value.value.units ? (
+                        `${value.value.value}${value.value.units}`
+                    ) : (
+                        '?'
+                    )}
+                </span>
+            )
         ) : (
-            <span className="selected__empty">?</span>
+            <span className="selected__empty"></span>
         )}
         <label className="selected__label">
             {value ? value.label : 'None'}
