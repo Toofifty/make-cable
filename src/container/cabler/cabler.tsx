@@ -7,6 +7,7 @@ import reducer from './reducer';
 import BackgroundColorPicker from '../../components/background-color-picker';
 
 import './cabler.scss';
+import Contribute from '../../components/contribute';
 
 interface CablerProps {
     allOptions: any;
@@ -53,6 +54,7 @@ const Cabler: React.FC<CablerProps> = ({
                 />
                 <Graphic />
                 <Form allOptions={allOptions} />
+                <Contribute />
             </div>
         </CablerContext.Provider>
     );

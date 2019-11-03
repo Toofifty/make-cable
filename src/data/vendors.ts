@@ -1,4 +1,4 @@
-import { Stockist } from '../utils/types';
+import { Vendor } from '../utils/types';
 
 export default {
     zapcables: {
@@ -25,4 +25,4 @@ export default {
         url: 'https://www.dream-cables.com/',
         location: 'USA',
     },
-} as Record<string, Stockist>;
+} as Record<string, Vendor>;

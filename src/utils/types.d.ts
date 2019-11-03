@@ -12,13 +12,47 @@ type DetachableType = 'none' | '4-pin' | '5-pin';
 
 type CablerActionType = 'SET_PART' | 'SET_ALL';
 
+/**
+ * Represents an option for a cable part
+ */
 interface PartOption<T = string> {
+    /**
+     * Generic value of the option. Must be unique per part.
+     */
     value: T;
+
+    /**
+     * Label to display in interface
+     */
     label: string;
-    stocked?: string[];
+
+    /**
+     * List of vendors where this part is available.
+     * Corresponds with Vendor.name
+     */
+    vendors?: string[];
+
+    /**
+     * Form interface icon
+     */
     icon?: React.FC;
+
+    /**
+     * Graphic to render in the visualizer
+     */
     graphic?: React.FC;
+
+    /**
+     * CSS color (hex, rgb, hsl, etc) for rendering the following parts:
+     * - Heatshrink
+     * - Sleeving (if pattern not provided)
+     * - Double Sleeving (if pattern not provided)
+     */
     color?: string;
+
+    /**
+     * Image URL for loading a pattern for both the interface and visualizer
+     */
     pattern?: string;
 }
 
@@ -68,9 +102,28 @@ interface OptionDefinition {
     heatshrink: PartOption<string>[];
 }
 
-interface Stockist {
+/**
+ * A vendor or reseller that sells parts or custom builds cables
+ */
+interface Vendor {
+    /**
+     * Unique identifier name.
+     * Corresponds with PartOption.vendors
+     */
     name: string;
+
+    /**
+     * Label to display in interface
+     */
     label: string;
+
+    /**
+     * Website URL
+     */
     url: string;
+
+    /**
+     * Generic location (usually country or state)
+     */
     location: string;
 }

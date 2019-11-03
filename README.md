@@ -1,44 +1,99 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# make-cable
 
-## Available Scripts
+`make-cable` is an open-source visual USB cable designer built in React
 
-In the project directory, you can run:
+## Local development
 
-### `yarn start`
+`make-cable` was bootstrapped with Create React App, so normal CRA commands will work.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run `yarn` to install dependencies and `yarn start` to run the application.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Contribute
 
-### `yarn test`
+### Making a contribution
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I'm very option for contributions, since there are so many vendors and so many different options they offer. Just fork and submit a PR.
 
-### `yarn build`
+### How to add options
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Part options (e.g. USB connectors, sleeving patterns, coil lengths) are all easily modifiable and open to extending. Each part has a file in `src/data/parts` which describes all the available options for the part. The properties for each option are as follows:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```ts
+/**
+ * Represents an option for a cable part
+ */
+interface PartOption<T = string> {
+    /**
+     * Generic value of the option. Must be unique per part.
+     */
+    value: T;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    /**
+     * Label to display in interface
+     */
+    label: string;
 
-### `yarn eject`
+    /**
+     * List of vendors where this part is available.
+     * Corresponds with Vendor.name
+     */
+    vendors?: string[];
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    /**
+     * Form interface icon
+     */
+    icon?: React.FC;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    /**
+     * Graphic to render in the visualizer
+     */
+    graphic?: React.FC;
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    /**
+     * CSS color (hex, rgb, hsl, etc) for rendering the following parts:
+     * - Heatshrink
+     * - Sleeving (if pattern not provided)
+     * - Double Sleeving (if pattern not provided)
+     */
+    color?: string;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    /**
+     * Image URL for loading a pattern for both the interface and visualizer
+     */
+    pattern?: string;
+}
+```
 
-## Learn More
+Simply add more objects to the exported array, and they will appear in the app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### How to add Vendors
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Add vendors just like part options inside `src/data/vendors`. Here are the properties:
+
+```ts
+/**
+ * A vendor or reseller that sells parts or custom builds cables
+ */
+interface Vendor {
+    /**
+     * Unique identifier name.
+     * Corresponds with PartOption.vendors
+     */
+    name: string;
+
+    /**
+     * Label to display in interface
+     */
+    label: string;
+
+    /**
+     * Website URL
+     */
+    url: string;
+
+    /**
+     * Generic location (usually country or state)
+     */
+    location: string;
+}
+```

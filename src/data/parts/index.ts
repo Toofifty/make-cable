@@ -31,12 +31,12 @@ export default {
         {
             value: { value: 1, units: 'm' },
             label: '1 metre',
-            stocked: ['jujucables'],
+            vendors: ['jujucables'],
         },
         {
             value: { value: 1.5, units: 'm' },
             label: '1.5 metres',
-            stocked: ['jujucables'],
+            vendors: ['jujucables'],
         },
         {
             value: { value: 2, units: 'm' },

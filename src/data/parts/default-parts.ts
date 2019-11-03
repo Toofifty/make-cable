@@ -1,5 +1,5 @@
 import { PartName } from '../../utils/types';
-import mapDict from '../../utils/mapDict';
+import mapDict from '../../utils/map-dict';
 
 interface DefaultOptionData {
     graphic?: React.FC;
