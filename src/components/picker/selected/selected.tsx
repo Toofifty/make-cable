@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { PartOption } from '../../../utils/types';
 
 import './selected.scss';
+import Option from '../option';
 
 interface SelectedProps {
     value?: PartOption<any>;
@@ -16,26 +17,7 @@ const Selected: React.FC<SelectedProps> = ({ value, active }) => (
             'selected--active': active,
         })}
     >
-        {value ? (
-            value.color ? (
-                <div
-                    className="selected__color"
-                    style={{ ['--color' as any]: value.color }}
-                />
-            ) : (
-                <span className="selected__icon">
-                    {value.icon ? (
-                        <value.icon />
-                    ) : value.value.units ? (
-                        `${value.value.value}${value.value.units}`
-                    ) : (
-                        '?'
-                    )}
-                </span>
-            )
-        ) : (
-            <span className="selected__empty"></span>
-        )}
+        {value && <Option option={value} classPrefix="selected__" />}
         <label className="selected__label">
             {value ? value.label : 'None'}
         </label>

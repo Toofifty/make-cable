@@ -18,7 +18,11 @@ const Picker: React.FC<PickerProps> = ({ partName, options }) => {
     const [selected, dispatch] = useStore(state => state.parts[partName]);
 
     useEffect(() => {
-        const onClickOutside = () => setIsOpen(false);
+        const onClickOutside = (e: MouseEvent) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsOpen(false);
+        };
 
         if (isOpen) window.addEventListener('click', onClickOutside);
 

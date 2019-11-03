@@ -6,8 +6,6 @@ import Form from '../form';
 import reducer from './reducer';
 import BackgroundColorPicker from '../../components/background-color-picker';
 
-import { ReactComponent as Ruler } from '../../data/ruler.svg';
-
 import './cabler.scss';
 
 interface CablerProps {
@@ -36,7 +34,7 @@ const Cabler: React.FC<CablerProps> = ({
         initialState || getDefaultState()
     );
 
-    const [backgroundColor, setBackgroundColor] = useState('blue');
+    const [backgroundColor, setBackgroundColor] = useState('black');
 
     useEffect(() => onUpdate && onUpdate(state), [onUpdate, state]);
     useEffect(
@@ -52,12 +50,6 @@ const Cabler: React.FC<CablerProps> = ({
                 <BackgroundColorPicker
                     selected={backgroundColor}
                     onSelect={setBackgroundColor}
-                />
-                <Ruler
-                    style={{
-                        transform: 'scale(0.5)',
-                        transformOrigin: '0 0 0',
-                    }}
                 />
                 <Graphic />
                 <Form allOptions={allOptions} />

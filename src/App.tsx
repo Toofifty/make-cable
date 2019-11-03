@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useCallback, useState } from 'react';
 import Cabler from './container/cabler';
 import partOptions from './data/parts';
-import { CablerState, PartOption } from './utils/types';
-import mapDict, { Dict } from './utils/mapDict';
+import { CablerState } from './utils/types';
+import { squish, parse } from './utils/urls';
 
 const App: React.FC = () => {
     const [initialState, setInitialState] = useState<CablerState | undefined>(
@@ -12,38 +12,19 @@ const App: React.FC = () => {
     const parseStateFromUrl = useCallback(() => {
         try {
             const hash = window.location.hash.replace('#', '');
-            const { parts, notes } = JSON.parse(atob(hash));
-            setInitialState({
-                parts: mapDict(parts, (key, value) => [
-                    key,
-                    (partOptions as any)[key].find(
-                        (option: PartOption) =>
-                            JSON.stringify(option.value) ===
-                            JSON.stringify(value)
-                    ),
-                ]),
-                notes,
-            });
+            setInitialState(parse(atob(hash)));
         } catch {}
     }, []);
 
-    const updateUrl = useCallback(({ parts, notes }: CablerState) => {
-        const data = {
-            parts: mapDict(parts as Dict, (key, value) => [
-                key,
-                value && value.value,
-            ]),
-            notes,
-        };
-        const newUrl = `#${btoa(JSON.stringify(data))}`;
+    const updateUrl = useCallback((state: CablerState) => {
+        const newUrl = `#${btoa(squish(state))}`;
         if (window.location.hash !== newUrl) {
-            window.history.pushState(data, '', newUrl);
+            window.history.pushState(newUrl, '', newUrl);
         }
     }, []);
 
     useLayoutEffect(() => {
         parseStateFromUrl();
-
         window.addEventListener('popstate', parseStateFromUrl);
 
         return () => {

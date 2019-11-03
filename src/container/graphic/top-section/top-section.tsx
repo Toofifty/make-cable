@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import useStore from '../../../utils/hooks/useStore';
 
 import './top-section.scss';
@@ -27,7 +27,17 @@ const TopSection: React.FC<TopSectionProps> = () => {
         state => state.parts.sleeving
     );
     const [detachable] = useStore(state => state.parts.detachable);
-    const [cableLength] = useStore(state => state.parts.cableLength);
+
+    const heatshrinkSize = useMemo(() => {
+        if (!connectorA) return 'lg';
+        if (connectorA.value.startsWith('usb-a')) {
+            return 'lg';
+        }
+        if (connectorA.value.startsWith('usb-c')) {
+            return 'md';
+        }
+        return 'sm';
+    }, [connectorA]);
 
     return (
         <div className="top-section">
@@ -38,14 +48,18 @@ const TopSection: React.FC<TopSectionProps> = () => {
             )}
             {heatshrink && (
                 <div className="top-section__heatshrink">
-                    <Heatshrink color={heatshrink.color || 'red'} size="lg" />
+                    <Heatshrink
+                        color={heatshrink.color || 'red'}
+                        size={heatshrinkSize}
+                    />
                 </div>
             )}
             {sleeving && (
                 <div className="top-section__cable">
                     <Cable
-                        length={cableLength ? cableLength.value.value : 0.5}
+                        length={0.5}
                         color={sleeving.color || 'red'}
+                        sleeving={sleeving.pattern}
                     />
                 </div>
             )}

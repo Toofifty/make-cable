@@ -2,7 +2,7 @@
     flex: 1;
     min-width: 12px;
     position: relative;
-    height: 100vh;
+    height: calc(0.5 / var(--scale, 0.5) * 1600px);
 
     overflow: hidden;
     position: relative;

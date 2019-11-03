@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import useStore from '../../../utils/hooks/useStore';
 import { defaultParts } from '../../../data/parts';
 import Heatshrink from '../heatshrink';
@@ -20,6 +20,17 @@ const BottomSection: React.FC<BottomSectionProps> = () => {
         state => state.parts.heatshrink
     );
 
+    const heatshrinkSize = useMemo(() => {
+        if (!connectorB) return 'lg';
+        if (connectorB.value.startsWith('usb-a')) {
+            return 'lg';
+        }
+        if (connectorB.value.startsWith('usb-c')) {
+            return 'md';
+        }
+        return 'sm';
+    }, [connectorB]);
+
     return (
         <div className="bottom-section">
             {connectorB && (
@@ -29,7 +40,10 @@ const BottomSection: React.FC<BottomSectionProps> = () => {
             )}
             {heatshrink && (
                 <div className="bottom-section__heatshrink">
-                    <Heatshrink color={heatshrink.color || 'red'} size="lg" />
+                    <Heatshrink
+                        color={heatshrink.color || 'red'}
+                        size={heatshrinkSize}
+                    />
                 </div>
             )}
         </div>

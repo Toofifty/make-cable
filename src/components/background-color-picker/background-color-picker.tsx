@@ -11,7 +11,7 @@ interface BackgroundColorPickerProps {
 }
 
 const BackgroundColorPicker: React.FC<BackgroundColorPickerProps> = ({
-    selected = 'blue',
+    selected = 'black',
     onSelect,
 }) => (
     <div

@@ -19,6 +19,7 @@ interface PartOption<T = string> {
     icon?: React.FC;
     graphic?: React.FC;
     color?: string;
+    pattern?: string;
 }
 
 interface Store<T, A> {
@@ -64,6 +65,7 @@ interface OptionDefinition {
     detachable: PartOption<DetachableType>[];
     sleeving: PartOption<string>[];
     doubleSleeving: PartOption<string>[];
+    heatshrink: PartOption<string>[];
 }
 
 interface Stockist {
