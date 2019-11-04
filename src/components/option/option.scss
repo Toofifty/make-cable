@@ -11,6 +11,7 @@ $block: '.option';
     border: none;
     font-family: inherit;
     background: none;
+    outline: none;
 
     &__label {
         color: #094074;
@@ -87,15 +88,24 @@ $block: '.option';
         border-radius: 4px;
         overflow: visible;
 
-        &:hover,
-        &#{$block}--active {
+        &:hover {
             #{$block}__view {
-                transform: translate(-50%, -50%) scale(1.6);
+                transform: translate(-50%, -50%) scale(1.2);
 
                 &--icon {
                     transform: translate(-50%, -50%) scale(0.8);
                 }
             }
+        }
+
+        &#{$block}--active:after {
+            content: '👍';
+            position: absolute;
+            left: 50%;
+            top: 15%;
+            font-size: 24px;
+            transform: translate(-50%, -50%);
+            color: black;
         }
 
         #{$block} {
@@ -113,8 +123,8 @@ $block: '.option';
 
                 &--color,
                 &--pattern {
-                    width: 56px;
-                    height: 56px;
+                    width: 64px;
+                    height: 64px;
                     border-radius: 4px;
                     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                         0 2px 4px rgba(0, 0, 0, 0.1),

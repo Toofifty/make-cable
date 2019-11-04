@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, MouseEvent } from 'react';
 
 import Option from 'components/option';
 import { PartName, PartOption } from 'utils/types';
@@ -9,29 +9,18 @@ import Platter from './platter';
 
 import './picker.scss';
 
-interface PickerProps {
+const Picker: React.FC<{
     partName: PartName;
     options: PartOption[];
-}
-
-const Picker: React.FC<PickerProps> = ({ partName, options }) => {
+}> = ({ partName, options }) => {
     const [isOpen, setIsOpen] = useState(false);
-
     const [selected, dispatch] = useStore(state => state.parts[partName]);
 
-    useEffect(() => {
-        const onClickOutside = (e: MouseEvent) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsOpen(false);
-        };
-
-        if (isOpen) window.addEventListener('click', onClickOutside);
-
-        return () => {
-            window.removeEventListener('click', onClickOutside);
-        };
-    }, [isOpen]);
+    const onClose = useCallback((event: MouseEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setIsOpen(false);
+    }, []);
 
     return (
         <div className="picker" onClick={() => setIsOpen(true)}>
@@ -39,6 +28,7 @@ const Picker: React.FC<PickerProps> = ({ partName, options }) => {
             <Option type="selected" value={selected} active={isOpen} />
             {isOpen && (
                 <Platter
+                    partName={partName}
                     options={options}
                     selected={selected}
                     onSelect={option =>
@@ -47,6 +37,7 @@ const Picker: React.FC<PickerProps> = ({ partName, options }) => {
                             payload: { part: partName, option },
                         })
                     }
+                    onClose={onClose}
                 />
             )}
         </div>
