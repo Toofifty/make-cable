@@ -4,9 +4,10 @@ import Graphic from 'container/graphic';
 import Form from 'container/form';
 import BackgroundColorPicker from 'components/background-color-picker';
 import Contribute from 'components/contribute';
-import { RootAction, RootState, Store } from 'utils/types';
-
-import reducer from './reducer';
+import { RootState } from 'utils/types';
+import getDefaultState from 'store/state';
+import reducer from 'store/reducer';
+import RootContext from 'store/context';
 
 import './root.scss';
 
@@ -15,16 +16,6 @@ interface RootProps {
     initialState?: RootState;
     onUpdate?: (state: RootState) => void;
 }
-
-const getDefaultState = (): RootState => ({
-    parts: {},
-    notes: '',
-});
-
-export const RootContext = createContext<Store<RootState, RootAction>>({
-    state: getDefaultState(),
-    dispatch: () => getDefaultState(),
-});
 
 const Root: React.FC<RootProps> = ({ allOptions, initialState, onUpdate }) => {
     const [state, dispatch] = useReducer(

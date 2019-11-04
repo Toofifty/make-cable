@@ -1,5 +1,3 @@
-import Root, { RootContext } from './root';
-
-export { RootContext };
+import Root from './root';
 
 export default Root;

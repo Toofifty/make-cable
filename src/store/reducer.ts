@@ -1,6 +1,6 @@
 import { RootAction, RootState } from 'utils/types';
 
-export default (
+const RootReducer = (
     { parts, notes }: RootState,
     { type, payload }: RootAction
 ): RootState => {
@@ -21,3 +21,5 @@ export default (
     }
     return { parts, notes };
 };
+
+export default RootReducer;
