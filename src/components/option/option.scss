@@ -68,12 +68,18 @@ $block: '.option';
             0 64px 64px rgba(0, 0, 0, 0.1);
         border-radius: 4px;
         background: #fff;
-        border: 1px solid #fafafa;
+        border: 2px solid #fff;
         z-index: 0;
+        transition: transform 0.25s, box-shadow 0.25s;
 
         &:hover,
         &#{$block}--active {
             transform: scale(1.1);
+
+            box-shadow: 0 9px 8px rgba(0, 0, 0, 0.1),
+                0 12px 12px rgba(0, 0, 0, 0.1),
+                0 24px 24px rgba(0, 0, 0, 0.1),
+                0 72px 72px rgba(0, 0, 0, 0.2);
 
             #{$block}__view {
                 transform: translate(-50%, -50%) scale(1.2);
