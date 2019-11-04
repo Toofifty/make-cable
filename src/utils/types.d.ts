@@ -10,7 +10,7 @@ type ConnectorType =
 type CoilType = 'none' | 'coil-a' | 'coil-b' | 'coil-ab';
 type DetachableType = 'none' | '4-pin' | '5-pin';
 
-type CablerActionType = 'SET_PART' | 'SET_ALL';
+type RootActionType = 'SET_PART' | 'SET_ALL';
 
 /**
  * Represents an option for a cable part
@@ -58,16 +58,16 @@ interface PartOption<T = string> {
 
 interface Store<T, A> {
     state: T;
-    dispatch: Dispatch<CablerAction>;
+    dispatch: Dispatch<RootAction>;
 }
 
-interface CablerState {
+interface RootState {
     parts: ChosenParts;
     notes: string;
 }
 
-interface CablerAction {
-    type: CablerActionType;
+interface RootAction {
+    type: RootActionType;
     payload: any;
 }
 

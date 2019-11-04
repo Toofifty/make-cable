@@ -1,11 +1,11 @@
 import React, { useLayoutEffect, useCallback, useState } from 'react';
-import Cabler from './container/cabler';
+import Root from './container/root';
 import partOptions from './data/parts';
-import { CablerState } from './utils/types';
+import { RootState } from './utils/types';
 import { squish, parse } from './utils/urls';
 
 const App: React.FC = () => {
-    const [initialState, setInitialState] = useState<CablerState | undefined>(
+    const [initialState, setInitialState] = useState<RootState | undefined>(
         undefined
     );
 
@@ -16,7 +16,7 @@ const App: React.FC = () => {
         } catch {}
     }, []);
 
-    const updateUrl = useCallback((state: CablerState) => {
+    const updateUrl = useCallback((state: RootState) => {
         const newUrl = `#${btoa(squish(state))}`;
         if (window.location.hash !== newUrl) {
             window.history.pushState(newUrl, '', newUrl);
@@ -33,7 +33,7 @@ const App: React.FC = () => {
     }, [parseStateFromUrl]);
 
     return (
-        <Cabler
+        <Root
             allOptions={partOptions}
             onUpdate={updateUrl}
             initialState={initialState}

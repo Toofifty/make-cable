@@ -1,35 +1,31 @@
 import React, { useReducer, createContext, useEffect, useState } from 'react';
 import cx from 'classnames';
-import { CablerAction, CablerState, Store } from '../../utils/types';
+import { RootAction, RootState, Store } from '../../utils/types';
 import Graphic from '../graphic';
 import Form from '../form';
 import reducer from './reducer';
 import BackgroundColorPicker from '../../components/background-color-picker';
-
-import './cabler.scss';
 import Contribute from '../../components/contribute';
 
-interface CablerProps {
+import './root.scss';
+
+interface RootProps {
     allOptions: any;
-    initialState?: CablerState;
-    onUpdate?: (state: CablerState) => void;
+    initialState?: RootState;
+    onUpdate?: (state: RootState) => void;
 }
 
-const getDefaultState = (): CablerState => ({
+const getDefaultState = (): RootState => ({
     parts: {},
     notes: '',
 });
 
-export const CablerContext = createContext<Store<CablerState, CablerAction>>({
+export const RootContext = createContext<Store<RootState, RootAction>>({
     state: getDefaultState(),
     dispatch: () => getDefaultState(),
 });
 
-const Cabler: React.FC<CablerProps> = ({
-    allOptions,
-    initialState,
-    onUpdate,
-}) => {
+const Root: React.FC<RootProps> = ({ allOptions, initialState, onUpdate }) => {
     const [state, dispatch] = useReducer(
         reducer,
         initialState || getDefaultState()
@@ -46,8 +42,8 @@ const Cabler: React.FC<CablerProps> = ({
     );
 
     return (
-        <CablerContext.Provider value={{ state, dispatch }}>
-            <div className={cx('cabler', `cabler--${backgroundColor}`)}>
+        <RootContext.Provider value={{ state, dispatch }}>
+            <div className={cx('root', `root--${backgroundColor}`)}>
                 <BackgroundColorPicker
                     selected={backgroundColor}
                     onSelect={setBackgroundColor}
@@ -56,8 +52,8 @@ const Cabler: React.FC<CablerProps> = ({
                 <Form allOptions={allOptions} />
                 <Contribute />
             </div>
-        </CablerContext.Provider>
+        </RootContext.Provider>
     );
 };
 
-export default Cabler;
+export default Root;

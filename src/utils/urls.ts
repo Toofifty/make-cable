@@ -1,9 +1,9 @@
-import { CablerState, PartOption } from './types';
+import { RootState, PartOption } from './types';
 import { ALL_PARTS } from '../data/parts';
 import { isLength } from './typecheck';
 import partOptions from '../data/parts';
 
-export const squish = (state: CablerState): string =>
+export const squish = (state: RootState): string =>
     `${ALL_PARTS.map(partName => {
         const part = state.parts[partName];
         return part
@@ -13,7 +13,7 @@ export const squish = (state: CablerState): string =>
             : '-';
     }).join('/')}/${state.notes}`;
 
-export const parse = (hash: string): CablerState =>
+export const parse = (hash: string): RootState =>
     hash.split('/').reduce(
         (state, data, index) => {
             const partName = ALL_PARTS[index];
@@ -35,5 +35,5 @@ export const parse = (hash: string): CablerState =>
                 ? { ...state, parts: { ...state.parts, [partName]: value } }
                 : state;
         },
-        { parts: {}, notes: '' } as CablerState
+        { parts: {}, notes: '' } as RootState
     );

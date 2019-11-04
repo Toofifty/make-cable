@@ -1,9 +1,9 @@
-import { CablerAction, CablerState } from '../../utils/types';
+import { RootAction, RootState } from '../../utils/types';
 
 export default (
-    { parts, notes }: CablerState,
-    { type, payload }: CablerAction
-): CablerState => {
+    { parts, notes }: RootState,
+    { type, payload }: RootAction
+): RootState => {
     switch (type) {
         case 'SET_PART':
             const update = {
