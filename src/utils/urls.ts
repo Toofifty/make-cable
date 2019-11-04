@@ -8,7 +8,7 @@ export const squish = (state: RootState): string =>
         const part = state.parts[partName];
         return part
             ? isLength(part.value)
-                ? part.value.value
+                ? `${part.value.value}:${part.value.units}`
                 : part.value
             : '-';
     }).join('/')}/${state.notes}`;
@@ -24,15 +24,18 @@ export const parse = (hash: string): RootState =>
                     notes: data,
                 };
 
-            const value = (partOptions as any)[partName].find(
-                (option: PartOption) =>
-                    isLength(option.value)
-                        ? option.value.value === Number(data)
-                        : option.value === data
+            const optionValue = (partOptions as any)[partName].find(
+                ({ value }: PartOption) =>
+                    isLength(value)
+                        ? `${value.value}:${value.units}` === data
+                        : value === data
             );
 
-            return value
-                ? { ...state, parts: { ...state.parts, [partName]: value } }
+            return optionValue
+                ? {
+                      ...state,
+                      parts: { ...state.parts, [partName]: optionValue },
+                  }
                 : state;
         },
         { parts: {}, notes: '' } as RootState
