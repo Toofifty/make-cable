@@ -1,0 +1,131 @@
+$block: '.option';
+
+#{$block} {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.25s, background 0.25s;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    font-family: inherit;
+    background: none;
+
+    &__label {
+        color: #094074;
+        margin-bottom: 8px;
+        user-select: none;
+        pointer-events: none;
+        text-align: center;
+        background: #fff;
+        padding: 2px 10px;
+        border-radius: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &__view {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        user-select: none;
+        transition: transform 0.25s;
+
+        &--icon {
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        &--color {
+            background: var(--color, red);
+            height: 100%;
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+                0 2px 4px rgba(0, 0, 0, 0.1),
+                0 4px 8px rgba(0, 0, 0, 0.1),
+                0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        &--length {
+            font-size: 64px;
+            color: #094074;
+        }
+
+        &--pattern {
+            max-height: 100%;
+        }
+    }
+
+    &--selected {
+        width: 128px;
+        height: 128px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+            0 4px 4px rgba(0, 0, 0, 0.1),
+            0 16px 16px rgba(0, 0, 0, 0.1),
+            0 64px 64px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #fafafa;
+        z-index: 0;
+
+        &:hover,
+        &#{$block}--active {
+            transform: scale(1.1);
+
+            #{$block}__view {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+    }
+
+    &--platter {
+        width: 96px;
+        height: 96px;
+        padding: 10px;
+        border-radius: 4px;
+        overflow: visible;
+
+        &:hover,
+        &#{$block}--active {
+            #{$block}__view {
+                transform: translate(-50%, -50%) scale(1.6);
+
+                &--icon {
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+            }
+        }
+
+        #{$block} {
+            &__label {
+                font-size: 12px;
+                white-space: nowrap;
+                margin-bottom: -10px;
+            }
+
+            &__view {
+
+                &--icon {
+                    transform: translate(-50%, -50%) scale(0.5);
+                }
+
+                &--color,
+                &--pattern {
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+                        0 2px 4px rgba(0, 0, 0, 0.1),
+                        0 4px 8px rgba(0, 0, 0, 0.1),
+                        0 8px 16px rgba(0, 0, 0, 0.1);
+                }
+
+                &--length {
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}

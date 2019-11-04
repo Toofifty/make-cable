@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+
+import Option from 'components/option';
 import { PartName, PartOption } from 'utils/types';
 import useStore from 'utils/hooks/useStore';
 import label from 'utils/labels';
 
-import Selected from './selected';
 import Platter from './platter';
 
 import './picker.scss';
@@ -35,7 +36,7 @@ const Picker: React.FC<PickerProps> = ({ partName, options }) => {
     return (
         <div className="picker" onClick={() => setIsOpen(true)}>
             <label className="picker__part-name">{label(partName)}</label>
-            <Selected value={selected} active={isOpen} />
+            <Option type="selected" value={selected} active={isOpen} />
             {isOpen && (
                 <Platter
                     options={options}

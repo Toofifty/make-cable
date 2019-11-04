@@ -1,0 +1,23 @@
+.lazy-option {
+    width: 96px;
+    height: 96px;
+    position: relative;
+
+    &:before {
+        content: '';
+        border-radius: 200px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        opacity: 0;
+    }
+
+    &--loading:before {
+        opacity: 1;
+    }
+}
