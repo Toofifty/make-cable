@@ -25,4 +25,29 @@ export default {
         url: 'https://www.dream-cables.com/',
         location: 'USA',
     },
+    mechcables: {
+        name: 'mechcables',
+        label: 'Mechcables',
+        url:
+            'https://docs.google.com/forms/d/e/1FAIpQLSdOHnSvHm3217gs4d4BiPH7OOv2Ki8lHN-BgatxVGK76chQ7w/viewform',
+        location: 'USA',
+    },
+    winnja: {
+        name: 'winnja',
+        label: 'Winnja',
+        url: 'https://www.winnja.com/',
+        location: 'Texas, USA',
+    },
+    clarkkable: {
+        name: 'clarkkable',
+        label: 'Clark Kable',
+        url: 'https://clarkkable.com/',
+        location: 'Germany',
+    },
+    mimiccables: {
+        name: 'mimiccables',
+        label: 'Mimic Cables',
+        url: 'https://www.mimic-cables.com/',
+        location: 'USA',
+    },
 } as Record<string, Vendor>;

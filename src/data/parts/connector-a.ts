@@ -17,7 +17,16 @@ export default [
         label: 'USB-A',
         icon: USBASilver,
         graphic: USBASilverGraphic,
-        vendors: ['zapcables', 'jujucables'],
+        vendors: [
+            'zapcables',
+            'jujucables',
+            'woodcables',
+            'mechcables',
+            'winnja',
+            'clarkkable',
+            'dreamcables',
+            'mimiccables',
+        ],
     },
     {
         value: 'usb-a-gold',

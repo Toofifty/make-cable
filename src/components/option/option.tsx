@@ -14,7 +14,11 @@ const ColorOptionView: React.FC<{ color: string }> = ({ color }) => (
 );
 
 const PatternOptionView: React.FC<{ pattern: string }> = ({ pattern }) => (
-    <img className="option__view option__view--pattern" src={pattern} />
+    <img
+        className="option__view option__view--pattern"
+        alt="pattern"
+        src={pattern}
+    />
 );
 
 const IconOptionView: React.FC<{ Icon: React.FC }> = ({ Icon }) => (
@@ -54,7 +58,7 @@ const OptionView: React.FC<{
 };
 
 const Option: React.FC<{
-    type: 'selected' | 'platter';
+    type: 'selected' | 'platter' | 'info';
     value?: PartOption<any>;
     active?: boolean;
     onClick?: (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => void;

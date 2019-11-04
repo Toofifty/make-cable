@@ -7,6 +7,7 @@ import label from 'utils/labels';
 import { ReactComponent as CloseIcon } from 'assets/close-icon.svg';
 
 import './platter.scss';
+import Modal from 'components/modal/modal';
 
 interface PlatterProps {
     partName: PartName;
@@ -15,6 +16,7 @@ interface PlatterProps {
     onSelect: (value: PartOption<any>) => void;
     onClose?: (event: MouseEvent) => void;
 }
+
 const Platter: React.FC<PlatterProps> = ({
     partName,
     options,
@@ -22,32 +24,23 @@ const Platter: React.FC<PlatterProps> = ({
     onSelect,
     onClose,
 }) => (
-    <>
+    <Modal title={label(partName)} onClose={onClose}>
         <div className="platter">
-            <div className="platter__header">
-                <span className="platter__title">{label(partName)}</span>
-                <button className="platter__close-button" onClick={onClose}>
-                    <CloseIcon />
-                </button>
-            </div>
-            <div className="platter__options">
-                {options.map(option => (
-                    <LazyOption
-                        key={
-                            option.value.units
-                                ? `${option.value.value}${option.value.units}`
-                                : option.value
-                        }
-                        onClick={() => onSelect(option)}
-                        value={option}
-                        type="platter"
-                        active={selected === option}
-                    />
-                ))}
-            </div>
+            {options.map(option => (
+                <LazyOption
+                    key={
+                        option.value.units
+                            ? `${option.value.value}${option.value.units}`
+                            : option.value
+                    }
+                    onClick={() => onSelect(option)}
+                    value={option}
+                    type="platter"
+                    active={selected === option}
+                />
+            ))}
         </div>
-        <div className="platter-backdrop" onClick={onClose} />
-    </>
+    </Modal>
 );
 
 export default Platter;

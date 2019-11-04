@@ -10,7 +10,10 @@ const LABEL_DEFINITIONS = {
     coilLength: 'Coil length',
 };
 
-const label = (name: keyof typeof LABEL_DEFINITIONS): string =>
+export const label = (name: keyof typeof LABEL_DEFINITIONS): string =>
     LABEL_DEFINITIONS[name];
+
+export const fullUnits = (units: 'in' | 'ft' | 'cm' | 'm'): string =>
+    ({ m: 'metre', cm: 'centimetre', ft: 'foot', in: 'inch' }[units]);
 
 export default label;

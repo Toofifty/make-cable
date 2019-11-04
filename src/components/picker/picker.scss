@@ -1,11 +1,19 @@
 .picker {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding: 8px;
 
-    &__part-name {
+    &__header {
         margin: 8px;
+        margin-right: 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 24px;
+        user-select: none;
+    }
+
+    &__part-name {
         color: #094074;
     }
 }

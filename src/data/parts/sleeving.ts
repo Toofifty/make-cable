@@ -133,6 +133,34 @@ export default [
         vendors: ['zapcables'],
     },
     {
+        value: 'pirate',
+        label: 'Pirate',
+        pattern:
+            'https://cdn11.bigcommerce.com/s-prdpfsbvbl/product_images/uploaded_images/pirate.jpg',
+        vendors: ['zapcables'],
+    },
+    {
+        value: 'norfolk',
+        label: 'Norfolk',
+        pattern:
+            'https://cdn8.bigcommerce.com/s-prdpfsbvbl/product_images/uploaded_images/norfolk.jpg',
+        vendors: ['zapcables'],
+    },
+    {
+        value: 'black-silver-tracer',
+        label: 'Black (silver tracer)',
+        pattern:
+            'https://cdn11.bigcommerce.com/s-prdpfsbvbl/product_images/uploaded_images/black-silver-tracer.jpg',
+        vendors: ['zapcables'],
+    },
+    {
+        value: 'argon',
+        label: 'Argon',
+        pattern:
+            'https://cdn8.bigcommerce.com/s-prdpfsbvbl/product_images/uploaded_images/argon.jpg',
+        vendors: ['zapcables'],
+    },
+    {
         value: 'black',
         label: 'Black',
         color: '#292c2b',

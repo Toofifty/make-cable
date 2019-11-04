@@ -1,13 +1,15 @@
-import React, { useState, useEffect, useCallback, MouseEvent } from 'react';
+import React, { useState, useCallback, MouseEvent } from 'react';
 
 import Option from 'components/option';
 import { PartName, PartOption } from 'utils/types';
 import useStore from 'utils/hooks/useStore';
 import label from 'utils/labels';
+import { halt } from 'utils/misc';
 
 import Platter from './platter';
 
 import './picker.scss';
+import PartInfoModal from 'components/part-info-modal';
 
 const Picker: React.FC<{
     partName: PartName;
@@ -16,16 +18,20 @@ const Picker: React.FC<{
     const [isOpen, setIsOpen] = useState(false);
     const [selected, dispatch] = useStore(state => state.parts[partName]);
 
-    const onClose = useCallback((event: MouseEvent) => {
-        event.preventDefault();
-        event.stopPropagation();
-        setIsOpen(false);
-    }, []);
-
     return (
-        <div className="picker" onClick={() => setIsOpen(true)}>
-            <label className="picker__part-name">{label(partName)}</label>
-            <Option type="selected" value={selected} active={isOpen} />
+        <div className="picker">
+            <div className="picker__header">
+                <label className="picker__part-name">{label(partName)}</label>
+                {selected && selected.value !== 'none' && (
+                    <PartInfoModal option={selected} partName={partName} />
+                )}
+            </div>
+            <Option
+                type="selected"
+                value={selected}
+                active={isOpen}
+                onClick={() => setIsOpen(true)}
+            />
             {isOpen && (
                 <Platter
                     partName={partName}
@@ -37,7 +43,7 @@ const Picker: React.FC<{
                             payload: { part: partName, option },
                         })
                     }
-                    onClose={onClose}
+                    onClose={halt(() => setIsOpen(false))}
                 />
             )}
         </div>

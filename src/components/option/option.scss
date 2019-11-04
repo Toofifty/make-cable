@@ -60,8 +60,8 @@ $block: '.option';
     }
 
     &--selected {
-        width: 128px;
-        height: 128px;
+        width: 142px;
+        height: 142px;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
             0 4px 4px rgba(0, 0, 0, 0.1),
             0 16px 16px rgba(0, 0, 0, 0.1),
@@ -87,6 +87,7 @@ $block: '.option';
         padding: 10px;
         border-radius: 4px;
         overflow: visible;
+        animation: fade-in 0.25s;
 
         &:hover {
             #{$block}__view {
@@ -106,6 +107,7 @@ $block: '.option';
             font-size: 24px;
             transform: translate(-50%, -50%);
             color: black;
+            animation: fade-in 0.25s;
         }
 
         #{$block} {
@@ -137,5 +139,22 @@ $block: '.option';
                 }
             }
         }
+    }
+
+    &--info {
+        width: 142px;
+        height: 142px;
+        border: 1px solid #fafafa;
+        border-radius: 4px;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

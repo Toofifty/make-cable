@@ -1,4 +1,4 @@
-import React, { MouseEvent as ReactMouseEvent, useState } from 'react';
+import React, { MouseEvent as ReactMouseEvent } from 'react';
 import cx from 'classnames';
 import { useInView } from 'react-intersection-observer';
 
