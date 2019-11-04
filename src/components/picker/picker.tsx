@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { PartName, PartOption } from '../../utils/types';
-import useStore from '../../utils/hooks/useStore';
+import { PartName, PartOption } from 'utils/types';
+import useStore from 'utils/hooks/useStore';
+import label from 'utils/labels';
+
 import Selected from './selected';
-import label from '../../utils/labels';
+import Platter from './platter';
 
 import './picker.scss';
-import Platter from './platter';
 
 interface PickerProps {
     partName: PartName;

@@ -1,4 +1,4 @@
-import { PartOption, ConnectorType } from '../../utils/types';
+import { PartOption, ConnectorType } from 'utils/types';
 import { ReactComponent as USBASilver } from './picker-icons/usb-a-silver.svg';
 import { ReactComponent as USBAGold } from './picker-icons/usb-a-gold.svg';
 import { ReactComponent as USBCSilver } from './picker-icons/usb-c-silver.svg';

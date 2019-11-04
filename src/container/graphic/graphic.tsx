@@ -1,6 +1,6 @@
 import React from 'react';
-import TopSection from './top-section';
-import BottomSection from './bottom-section';
+import TopSection from './components/top-section';
+import BottomSection from './components/bottom-section';
 
 import './graphic.scss';
 

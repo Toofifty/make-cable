@@ -1,6 +1,6 @@
 import React from 'react';
-import Picker from '../../components/picker';
-import { ALL_PARTS } from '../../data/parts';
+import Picker from 'components/picker';
+import { ALL_PARTS } from 'data/parts';
 
 import './form.scss';
 

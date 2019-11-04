@@ -1,8 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
-import { PartOption } from '../../../utils/types';
-import './platter.scss';
+import { PartOption } from 'utils/types';
+
 import Option from '../option';
+
+import './platter.scss';
 
 interface PlatterProps {
     options: PartOption<any>[];

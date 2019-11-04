@@ -1,6 +1,6 @@
 import React from 'react';
-import { Length, PartOption } from '../../../utils/types';
-import { isLength } from '../../../utils/typecheck';
+import { Length, PartOption } from 'utils/types';
+import { isLength } from 'utils/typecheck';
 
 const ColorOption: React.FC<{ classPrefix: string; color: string }> = ({
     classPrefix,

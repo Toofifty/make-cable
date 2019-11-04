@@ -1,4 +1,4 @@
-import { OptionDefinition, PartName } from '../../utils/types';
+import { OptionDefinition, PartName } from 'utils/types';
 import connectorA from './connector-a';
 import connectorB from './connector-a';
 import sleeving from './sleeving';

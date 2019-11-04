@@ -1,11 +1,12 @@
 import React, { useReducer, createContext, useEffect, useState } from 'react';
 import cx from 'classnames';
-import { RootAction, RootState, Store } from '../../utils/types';
-import Graphic from '../graphic';
-import Form from '../form';
+import Graphic from 'container/graphic';
+import Form from 'container/form';
+import BackgroundColorPicker from 'components/background-color-picker';
+import Contribute from 'components/contribute';
+import { RootAction, RootState, Store } from 'utils/types';
+
 import reducer from './reducer';
-import BackgroundColorPicker from '../../components/background-color-picker';
-import Contribute from '../../components/contribute';
 
 import './root.scss';
 

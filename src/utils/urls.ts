@@ -1,7 +1,7 @@
-import { RootState, PartOption } from './types';
-import { ALL_PARTS } from '../data/parts';
-import { isLength } from './typecheck';
-import partOptions from '../data/parts';
+import { ALL_PARTS } from 'data/parts';
+import partOptions from 'data/parts';
+import { RootState, PartOption } from 'utils/types';
+import { isLength } from 'utils/typecheck';
 
 export const squish = (state: RootState): string =>
     `${ALL_PARTS.map(partName => {

@@ -1,4 +1,4 @@
-import { RootAction, RootState } from '../../utils/types';
+import { RootAction, RootState } from 'utils/types';
 
 export default (
     { parts, notes }: RootState,

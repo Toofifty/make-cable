@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useCallback, useState } from 'react';
-import Root from './container/root';
-import partOptions from './data/parts';
-import { RootState } from './utils/types';
-import { squish, parse } from './utils/urls';
+import Root from 'container/root';
+import partOptions from 'data/parts';
+import { RootState } from 'utils/types';
+import { squish, parse } from 'utils/urls';
 
 const App: React.FC = () => {
     const [initialState, setInitialState] = useState<RootState | undefined>(

@@ -1,4 +1,4 @@
-import { Vendor } from '../utils/types';
+import { Vendor } from 'utils/types';
 
 export default {
     zapcables: {

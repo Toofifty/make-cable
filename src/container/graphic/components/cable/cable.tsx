@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+
 import './cable.scss';
 
 interface CableProps {

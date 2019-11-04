@@ -1,7 +1,3 @@
-export interface Dict<T = any> {
-    [key: string]: T;
-}
-
 type MapFunction<T, R> = (key: string, value: T) => [string, R];
 
 const mapDict = <T, R>(

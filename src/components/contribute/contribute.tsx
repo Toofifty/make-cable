@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './contribute.scss';
 
 const Contribute: React.FC = () => (

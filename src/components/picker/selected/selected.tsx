@@ -1,9 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
-import { PartOption } from '../../../utils/types';
+import { PartOption } from 'utils/types';
+
+import Option from '../option';
 
 import './selected.scss';
-import Option from '../option';
 
 interface SelectedProps {
     value?: PartOption<any>;

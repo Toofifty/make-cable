@@ -1,6 +1,6 @@
 import { useContext, Dispatch, useMemo } from 'react';
-import { RootState, RootAction } from '../types';
-import { RootContext } from '../../container/root';
+import { RootContext } from 'container/root';
+import { RootState, RootAction } from 'utils/types';
 
 const useStore = <T>(
     getter: (state: RootState) => T

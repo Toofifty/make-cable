@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import useStore from '../../../utils/hooks/useStore';
-import { defaultParts } from '../../../data/parts';
+import useStore from 'utils/hooks/useStore';
+import { defaultParts } from 'data/parts';
 import Heatshrink from '../heatshrink';
 
 import './bottom-section.scss';

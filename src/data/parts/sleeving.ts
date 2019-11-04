@@ -1,4 +1,4 @@
-import { PartOption } from '../../utils/types';
+import { PartOption } from 'utils/types';
 
 export default [
     {
