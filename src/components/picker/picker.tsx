@@ -1,4 +1,4 @@
-import React, { useState, useCallback, MouseEvent } from 'react';
+import React, { useState } from 'react';
 
 import Option from 'components/option';
 import { PartName, PartOption } from 'utils/types';

@@ -6,7 +6,7 @@
     max-height: 90%;
     width: 90%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 4px;
     z-index: 4;
     background: #fff;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
@@ -41,6 +41,10 @@
         height: 28px;
         outline: none;
         float: right;
+
+        >svg {
+            transform: scale(0.6);
+        }
 
         &:hover {
             background: #fff;

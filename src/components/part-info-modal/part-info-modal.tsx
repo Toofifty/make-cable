@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Modal from 'components/modal';
 import Option from 'components/option';
-import { PartOption, PartName, Length } from 'utils/types';
+import { PartOption, PartName, Length, Vendor } from 'utils/types';
 import { halt } from 'utils/misc';
 import label, { fullUnits } from 'utils/labels';
 import vendors from 'data/vendors';
@@ -18,6 +18,17 @@ const serializeValue = (value: string | Length) => {
     }
     return value;
 };
+
+const VendorLink: React.FC<{ vendor: Vendor }> = ({ vendor }) => (
+    <li key={vendor.name} className="part-info-modal__vendor">
+        <a href={vendor.url} className="part-info-modal__vendor-link">
+            {vendor.label}
+        </a>
+        <span className="part-info-modal__vendor-location">
+            ({vendor.location})
+        </span>
+    </li>
+);
 
 const PartInfoModal: React.FC<{
     option: PartOption<any>;
@@ -52,26 +63,12 @@ const PartInfoModal: React.FC<{
                             <ul className="part-info-modal__vendors">
                                 {(option.vendors || [])
                                     .sort()
-                                    .map(vendorName => {
-                                        const vendor = vendors[vendorName];
-
-                                        return (
-                                            <li
-                                                key={vendor.name}
-                                                className="part-info-modal__vendor"
-                                            >
-                                                <a
-                                                    href={vendor.url}
-                                                    className="part-info-modal__vendor-link"
-                                                >
-                                                    {vendor.label}
-                                                </a>
-                                                <span className="part-info-modal__vendor-location">
-                                                    ({vendor.location})
-                                                </span>
-                                            </li>
-                                        );
-                                    })}
+                                    .map(vendorName => (
+                                        <VendorLink
+                                            key={vendorName}
+                                            vendor={vendors[vendorName]}
+                                        />
+                                    ))}
                             </ul>
                         </div>
                     </section>

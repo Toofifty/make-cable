@@ -144,8 +144,12 @@ $block: '.option';
     &--info {
         width: 142px;
         height: 142px;
-        border: 1px solid #fafafa;
+        border: 2px solid #fafafa;
         border-radius: 4px;
+
+        #{$block}__view--icon {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
     }
 }
 

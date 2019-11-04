@@ -4,8 +4,6 @@ import LazyOption from 'components/lazy-option';
 import { PartOption, PartName } from 'utils/types';
 import label from 'utils/labels';
 
-import { ReactComponent as CloseIcon } from 'assets/close-icon.svg';
-
 import './platter.scss';
 import Modal from 'components/modal/modal';
 
