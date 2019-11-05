@@ -46,8 +46,6 @@ export const connectorA = parseCSV(connectorAData).map(option => ({
     graphic: require(`./parts/graphic-icons/${option.value}.svg`),
 })) as PartOption<string>[];
 
-console.log(connectorA[0]);
-
 export const connectorB = parseCSV(connectorBData).map(option => ({
     ...option,
     icon: require(`./parts/picker-icons/${option.value}.svg`),
