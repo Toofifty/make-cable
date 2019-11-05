@@ -2,12 +2,11 @@
     flex: 2;
     min-width: 12px;
     position: relative;
-    height: calc(0.5 / var(--scale, 0.5) * 200vh);
+    height: calc(0.5 / var(--scale, 1) * 200vh);
 
     overflow: hidden;
     position: relative;
 
-    transform: scale(0.5);
-    transform: scale(var(--scale, 0.5));
+    transform: scale(var(--scale, 1));
     transform-origin: center top;
 }

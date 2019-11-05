@@ -69,6 +69,10 @@ $block: '.option';
         z-index: 0;
         transition: transform $quick, box-shadow $quick;
 
+        #{$block}__label {
+            font-size: $font-md;
+        }
+
         &:hover,
         &#{$block}--active {
             transform: scale(1.1);

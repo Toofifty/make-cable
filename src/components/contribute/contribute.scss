@@ -2,20 +2,20 @@
 
 .contribute {
     &__button {
-        @include spread-shadow;
+        @include spread-shadow(rgba(0, 0, 0, 0.05));
         text-decoration: none;
-        background: $dark-cerulean;
+        color: $dark-cerulean;
+        background: $white;
         border-radius: 4px;
         padding: 4px 8px;
-        color: $white;
         font-size: $font-md;
-        transition: $quick;
+        transition: box-shadow $quick;
         cursor: pointer;
         font-family: $font-main;
         margin: 4px 12px;
 
         &:hover {
-            background: $raisin-black;
+            @include spread-shadow;
         }
     }
 }

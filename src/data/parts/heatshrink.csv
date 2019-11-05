@@ -2,7 +2,7 @@ value,label,color,vendors[]
 white,White,white,zapcables
 black,Black,black,zapcables
 gray,Gray,gray,zapcables
-clear,Clear,"rgba(0, 0, 0, 0.1)",zapcables
+clear,Clear,#bbb,zapcables
 red,Red,#d83b57,zapcables
 rust,Rust,#cf5749,zapcables
 orange,Orange,#f88144,zapcables
