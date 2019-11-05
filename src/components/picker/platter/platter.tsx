@@ -1,11 +1,10 @@
 import React, { MouseEvent } from 'react';
 
-import LazyOption from 'components/lazy-option';
+import { LazyOption, Modal } from 'components';
 import { PartOption, PartName } from 'utils/types';
 import label from 'utils/labels';
 
 import './platter.scss';
-import Modal from 'components/modal/modal';
 
 interface PlatterProps {
     partName: PartName;

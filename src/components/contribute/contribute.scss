@@ -1,10 +1,6 @@
 @import '_var.scss';
 
 .contribute {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-
     &__button {
         @include spread-shadow;
         text-decoration: none;
@@ -16,6 +12,7 @@
         transition: $quick;
         cursor: pointer;
         font-family: $font-main;
+        margin: 4px 12px;
 
         &:hover {
             background: $raisin-black;

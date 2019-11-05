@@ -5,10 +5,6 @@ $colors: 'blue', 'white', 'orange', 'black';
 
 #{$block} {
     display: flex;
-    position: absolute;
-    left: 12px;
-    top: 12px;
-    z-index: 2;
 
     &__swatch {
         width: 32px;
@@ -18,11 +14,19 @@ $colors: 'blue', 'white', 'orange', 'black';
         position: relative;
         border: 2px solid transparent;
         outline: none;
+        transform: scale(0.6);
+        cursor: pointer;
+        transition: transform $quick;
+
+        &:hover {
+            transform: scale(0.8);
+        }
     }
 
     @each $color in $colors {
         &--#{$color} #{$block}__swatch--#{$color} {
             @include spread-shadow;
+            transform: scale(1);
         }
     }
 
@@ -32,6 +36,7 @@ $colors: 'blue', 'white', 'orange', 'black';
 
     &__swatch--white {
         background: $white;
+        border: 2px solid $dark-cerulean;
     }
 
     &__swatch--orange {

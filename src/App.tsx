@@ -4,7 +4,7 @@ import { allParts } from 'data';
 import { RootState } from 'utils/types';
 import { squish, parse } from 'utils/urls';
 
-const App: React.FC = () => {
+export default (() => {
     const [initialState, setInitialState] = useState<RootState | undefined>(
         undefined
     );
@@ -39,6 +39,4 @@ const App: React.FC = () => {
             initialState={initialState}
         />
     );
-};
-
-export default App;
+}) as React.FC;

@@ -25,6 +25,10 @@ $block: '.option';
         padding: 2px 10px;
         border-radius: 40px;
         border: 1px solid rgba(0, 0, 0, 0.1);
+
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__view {

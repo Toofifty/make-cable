@@ -1,9 +1,8 @@
 import React, { useReducer, useEffect, useState } from 'react';
 import cx from 'classnames';
+
 import Graphic from 'container/graphic';
 import Form from 'container/form';
-import BackgroundColorPicker from 'components/background-color-picker';
-import Contribute from 'components/contribute';
 import { RootState } from 'utils/types';
 import getDefaultState from 'store/state';
 import reducer from 'store/reducer';
@@ -36,13 +35,12 @@ const Root: React.FC<RootProps> = ({ allOptions, initialState, onUpdate }) => {
     return (
         <RootContext.Provider value={{ state, dispatch }}>
             <div className={cx('root', `root--${backgroundColor}`)}>
-                <BackgroundColorPicker
-                    selected={backgroundColor}
-                    onSelect={setBackgroundColor}
-                />
                 <Graphic />
-                <Form allOptions={allOptions} />
-                <Contribute />
+                <Form
+                    allOptions={allOptions}
+                    backgroundColor={backgroundColor}
+                    setBackgroundColor={setBackgroundColor}
+                />
             </div>
         </RootContext.Provider>
     );

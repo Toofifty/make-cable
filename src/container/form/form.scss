@@ -1,9 +1,41 @@
+@import '_var.scss';
+
 .form {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-evenly;
     flex: 3;
-    padding: 16px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    transition: background $quick;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background: $white;
+        padding: 16px;
+        box-sizing: border-box;
+    }
+
+    &__header-right {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: $font-lg;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-evenly;
+        max-width: 600px;
+        margin: 0 auto;
+        flex: 1;
+        padding: 16px;
+    }
 }

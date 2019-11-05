@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Option from 'components/option';
+import { Option } from 'components';
 import { PartName, PartOption } from 'utils/types';
 import useStore from 'utils/hooks/useStore';
 import label from 'utils/labels';
