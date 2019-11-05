@@ -46,6 +46,8 @@ export const connectorA = parseCSV(connectorAData).map(option => ({
     graphic: require(`./parts/graphic-icons/${option.value}.svg`),
 })) as PartOption<string>[];
 
+console.log(connectorA[0]);
+
 export const connectorB = parseCSV(connectorBData).map(option => ({
     ...option,
     icon: require(`./parts/picker-icons/${option.value}.svg`),
@@ -60,8 +62,6 @@ export const cableLength = parseCSV(cableLengthData).map(
         value: { value, units },
     })
 ) as PartOption<Length>[];
-
-console.log(cableLength[0]);
 
 export const doubleSleeving = parseCSV(doubleSleevingData).map(option => ({
     ...option,

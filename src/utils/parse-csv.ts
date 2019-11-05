@@ -4,7 +4,9 @@ export const parseCSV = <T = any>([headers, ...data]: string[][]): T[] => {
             line.reduce(
                 (entry, cell, index) => ({
                     ...entry,
-                    [headers[index]]: headers[index].endsWith('[]')
+                    [headers[index].replace('[]', '')]: headers[index].endsWith(
+                        '[]'
+                    )
                         ? cell.split(',')
                         : cell,
                 }),
