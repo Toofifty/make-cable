@@ -1,3 +1,5 @@
+@import '_var.scss';
+
 $block: '.option';
 
 #{$block} {
@@ -5,7 +7,7 @@ $block: '.option';
     flex-direction: column-reverse;
     align-items: center;
     cursor: pointer;
-    transition: transform 0.25s, background 0.25s;
+    transition: transform $quick, background $quick;
     overflow: hidden;
     position: relative;
     border: none;
@@ -14,44 +16,38 @@ $block: '.option';
     outline: none;
 
     &__label {
-        color: #094074;
+        color: $dark-cerulean;
         margin-bottom: 8px;
         user-select: none;
         pointer-events: none;
         text-align: center;
-        background: #fff;
+        background: $white;
         padding: 2px 10px;
         border-radius: 40px;
         border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     &__view {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        @include centred;
         z-index: -1;
         user-select: none;
-        transition: transform 0.25s;
+        transition: transform $quick;
 
         &--icon {
-            transform: translate(-50%, -50%) scale(0.8);
+            @include centred(scale(0.8));
         }
 
         &--color {
+            @include spread-shadow;
             background: var(--color, red);
             height: 100%;
             width: 100%;
             border-radius: 4px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-                0 2px 4px rgba(0, 0, 0, 0.1),
-                0 4px 8px rgba(0, 0, 0, 0.1),
-                0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         &--length {
-            font-size: 64px;
-            color: #094074;
+            font-size: $font-xxl;
+            color: $dark-cerulean;
         }
 
         &--pattern {
@@ -60,29 +56,25 @@ $block: '.option';
     }
 
     &--selected {
+        @include spread-shadow;
         width: 142px;
         height: 142px;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-            0 4px 4px rgba(0, 0, 0, 0.1),
-            0 16px 16px rgba(0, 0, 0, 0.1),
-            0 64px 64px rgba(0, 0, 0, 0.1);
         border-radius: 4px;
-        background: #fff;
-        border: 2px solid #fff;
+        background: $white;
+        border: 2px solid $white;
         z-index: 0;
-        transition: transform 0.25s, box-shadow 0.25s;
+        transition: transform $quick, box-shadow $quick;
 
         &:hover,
         &#{$block}--active {
             transform: scale(1.1);
 
             box-shadow: 0 9px 8px rgba(0, 0, 0, 0.1),
-                0 12px 12px rgba(0, 0, 0, 0.1),
-                0 24px 24px rgba(0, 0, 0, 0.1),
+                0 12px 12px rgba(0, 0, 0, 0.1), 0 24px 24px rgba(0, 0, 0, 0.1),
                 0 72px 72px rgba(0, 0, 0, 0.2);
 
             #{$block}__view {
-                transform: translate(-50%, -50%) scale(1.2);
+                @include centred(scale(1.2));
             }
         }
     }
@@ -93,55 +85,49 @@ $block: '.option';
         padding: 10px;
         border-radius: 4px;
         overflow: visible;
-        animation: fade-in 0.25s;
+        animation: fade-in $quick;
 
         &:hover {
             #{$block}__view {
-                transform: translate(-50%, -50%) scale(1.2);
+                @include centred(scale(1.2));
 
                 &--icon {
-                    transform: translate(-50%, -50%) scale(0.8);
+                    @include centred(scale(0.8));
                 }
             }
         }
 
         &#{$block}--active:after {
+            @include centred;
             content: '👍';
-            position: absolute;
-            left: 50%;
             top: 15%;
-            font-size: 24px;
-            transform: translate(-50%, -50%);
+            font-size: $font-lg;
             color: black;
-            animation: fade-in 0.25s;
+            animation: fade-in $quick;
         }
 
         #{$block} {
             &__label {
-                font-size: 12px;
+                font-size: $font-sm;
                 white-space: nowrap;
                 margin-bottom: -10px;
             }
 
             &__view {
-
                 &--icon {
-                    transform: translate(-50%, -50%) scale(0.5);
+                    @include centred(scale(0.5));
                 }
 
                 &--color,
                 &--pattern {
+                    @include spread-shadow;
                     width: 64px;
                     height: 64px;
                     border-radius: 4px;
-                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-                        0 2px 4px rgba(0, 0, 0, 0.1),
-                        0 4px 8px rgba(0, 0, 0, 0.1),
-                        0 8px 16px rgba(0, 0, 0, 0.1);
                 }
 
                 &--length {
-                    font-size: 32px;
+                    font-size: $font-xl;
                 }
             }
         }
@@ -150,11 +136,11 @@ $block: '.option';
     &--info {
         width: 142px;
         height: 142px;
-        border: 2px solid #fafafa;
+        border: 2px solid $off-white;
         border-radius: 4px;
 
         #{$block}__view--icon {
-            transform: translate(-50%, -50%) scale(1.2);
+            @include centred(scale(1.2));
         }
     }
 }

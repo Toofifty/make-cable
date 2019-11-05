@@ -1,8 +1,7 @@
+@import '_var.scss';
+
 $block: '.background-color-picker';
-$colors: 'blue',
-'white',
-'orange',
-'black';
+$colors: 'blue', 'white', 'orange', 'black';
 
 #{$block} {
     display: flex;
@@ -19,45 +18,27 @@ $colors: 'blue',
         position: relative;
         border: 2px solid transparent;
         outline: none;
-
-        &:after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border: 2px solid transparent;
-            border-radius: 3px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            transition: border 0.25s;
-        }
     }
 
     @each $color in $colors {
-        &--#{$color} {
-            #{$block}__swatch--#{$color} {
-                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-                    0 2px 4px rgba(0, 0, 0, 0.1),
-                    0 4px 8px rgba(0, 0, 0, 0.1),
-                    0 8px 16px rgba(0, 0, 0, 0.1);
-            }
+        &--#{$color} #{$block}__swatch--#{$color} {
+            @include spread-shadow;
         }
     }
 
     &__swatch--blue {
-        background: #5adbff;
+        background: $maya-blue;
     }
 
     &__swatch--white {
-        background: #ffffff;
+        background: $white;
     }
 
     &__swatch--orange {
-        background: #fe9000;
+        background: $dark-orange;
     }
 
     &__swatch--black {
-        background: #242525;
+        background: $raisin-black;
     }
 }

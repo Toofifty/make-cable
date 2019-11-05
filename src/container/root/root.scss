@@ -8,22 +8,22 @@
     transition: background 0.25s;
 
     &--blue {
-        background: #5adbff;
+        background: $maya-blue;
     }
 
     &--white {
-        background: #ffffff;
+        background: $white;
     }
 
     &--orange {
-        background: #fe9000;
+        background: $dark-orange;
     }
 
     &--black {
-        background: #242525;
+        background: $raisin-black;
 
         .form {
-            background: #e3e5ec;
+            background: $alice-blue;
         }
     }
 }

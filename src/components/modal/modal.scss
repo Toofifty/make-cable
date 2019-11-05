@@ -1,33 +1,38 @@
+@import '_var.scss';
+
 .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include centred;
+    @include spread-shadow;
+
     max-width: 600px;
     max-height: 500px;
     width: 90%;
     height: auto;
     border-radius: 4px;
     z-index: 4;
-    background: #fff;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-    transform: translate(-50%, -50%);
+    background: $white;
+    animation: grow-in $quick;
     overflow: hidden;
-    animation: grow-in 0.25s;
 
     display: flex;
     flex-direction: column;
+
+    &--exiting {
+        animation: shrink-out $quick forwards;
+        pointer-events: none;
+    }
 
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #fafafa;
+        background: $off-white;
         padding: 8px;
         padding-left: 32px;
     }
 
     &__title {
-        color: #094074;
+        color: $dark-cerulean;
         text-align: center;
         width: 100%;
     }
@@ -43,12 +48,12 @@
         outline: none;
         float: right;
 
-        >svg {
+        > svg {
             transform: scale(0.6);
         }
 
         &:hover {
-            background: #fff;
+            background: $white;
         }
     }
 
@@ -67,7 +72,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    animation: fade-in 0.25s;
+    animation: fade-in $quick;
+
+    &--exiting {
+        animation: fade-out $quick forwards;
+        pointer-events: none;
+    }
 }
 
 @keyframes fade-in {
@@ -80,9 +90,19 @@
     }
 }
 
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes grow-in {
     0% {
-        transform: translate(-50%, -50%) scale(0.1);
+        @include centred(scale(0.8));
         opacity: 0;
     }
 
@@ -91,7 +111,23 @@
     }
 
     100% {
-        transform: translate(-50%, -50%) scale(1);
+        @include centred(scale(1));
         opacity: 1;
+    }
+}
+
+@keyframes shrink-out {
+    0% {
+        @include centred(scale(1));
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        @include centred(scale(0.8));
+        opacity: 0;
     }
 }
