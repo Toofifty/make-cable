@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import useStore from '../../../../utils/hooks/useStore';
 
 import './top-section.scss';
-import { defaultParts } from '../../../../data/parts';
+import { defaultParts } from 'data';
 import Cable from '../cable';
 import Heatshrink from '../heatshrink';
 
@@ -14,7 +14,7 @@ interface TopSectionProps {}
  * Connector A
  * Heatshrink
  * Cable
- * Detachable
+ * Aviator
  * Cable
  * Coil
  */
@@ -26,7 +26,7 @@ const TopSection: React.FC<TopSectionProps> = () => {
     const [sleeving = defaultParts.sleeving] = useStore(
         state => state.parts.sleeving
     );
-    const [detachable] = useStore(state => state.parts.detachable);
+    const [aviator] = useStore(state => state.parts.aviator);
 
     const heatshrinkSize = useMemo(() => {
         if (!connectorA) return 'lg';
@@ -43,7 +43,7 @@ const TopSection: React.FC<TopSectionProps> = () => {
         <div className="top-section">
             {connectorA && (
                 <div className="top-section__connector-a">
-                    {connectorA.graphic && <connectorA.graphic />}
+                    <img src={connectorA.graphic} alt="doot" />
                 </div>
             )}
             {heatshrink && (

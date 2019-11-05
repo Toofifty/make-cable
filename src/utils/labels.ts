@@ -5,7 +5,7 @@ const LABEL_DEFINITIONS = {
     cableLength: 'Cable length',
     sleeving: 'Sleeving',
     doubleSleeving: 'Double sleeving',
-    detachable: 'Detachable?',
+    aviator: 'Aviator?',
     coil: 'Coil?',
     coilLength: 'Coil length',
 };

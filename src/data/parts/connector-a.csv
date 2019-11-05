@@ -1,0 +1,7 @@
+value,label,vendors[]
+usb-a-silver,USB-A,"zapcables,jujucables,woodcables,mechcables,winnja,clarkkable,dreamcables,mimiccables"
+usb-a-gold,USB-A (Gold),zapcables
+usb-c-silver,USB-C,zapcables
+usb-c-gold,USB-C (Gold),zapcables
+usb-mini-silver,USB Mini,zapcables
+usb-mini-gold,USB Mini (Gold),zapcables

@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useCallback, useState } from 'react';
 import Root from 'container/root';
-import partOptions from 'data/parts';
+import { allParts } from 'data';
 import { RootState } from 'utils/types';
 import { squish, parse } from 'utils/urls';
 
@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
     return (
         <Root
-            allOptions={partOptions}
+            allOptions={allParts}
             onUpdate={updateUrl}
             initialState={initialState}
         />

@@ -8,7 +8,7 @@ type ConnectorType =
     | 'usb-mini-silver'
     | 'usb-mini-gold';
 type CoilType = 'none' | 'coil-a' | 'coil-b' | 'coil-ab';
-type DetachableType = 'none' | '4-pin' | '5-pin';
+type AviatorType = 'none' | '4-pin' | '5-pin';
 
 type RootActionType = 'SET_PART' | 'SET_ALL';
 
@@ -33,14 +33,14 @@ interface PartOption<T = string> {
     vendors?: string[];
 
     /**
-     * Form interface icon
+     * Form interface icon name
      */
-    icon?: React.FC;
+    icon?: string;
 
     /**
-     * Graphic to render in the visualizer
+     * Graphic name to render in the visualizer
      */
-    graphic?: React.FC;
+    graphic?: string;
 
     /**
      * CSS color (hex, rgb, hsl, etc) for rendering the following parts:
@@ -77,7 +77,7 @@ interface ChosenParts {
     cableLength?: PartOption<Length>;
     coil?: PartOption<CoilType>;
     coilLength?: PartOption<Length>;
-    detachable?: PartOption<DetachableType>;
+    aviator?: PartOption<AviatorType>;
     sleeving?: PartOption<string>;
     heatshrink?: PartOption<string>;
     doubleSleeving?: PartOption<string>;
@@ -96,7 +96,7 @@ interface OptionDefinition {
     cableLength: PartOption<Length>[];
     coil: PartOption<CoilType>[];
     coilLength: PartOption<Length>[];
-    detachable: PartOption<DetachableType>[];
+    aviator: PartOption<AviatorType>[];
     sleeving: PartOption<string>[];
     doubleSleeving: PartOption<string>[];
     heatshrink: PartOption<string>[];

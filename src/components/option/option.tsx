@@ -21,9 +21,9 @@ const PatternOptionView: React.FC<{ pattern: string }> = ({ pattern }) => (
     />
 );
 
-const IconOptionView: React.FC<{ Icon: React.FC }> = ({ Icon }) => (
+const IconOptionView: React.FC<{ svg: string }> = ({ svg }) => (
     <span className="option__view option__view--icon">
-        <Icon />
+        <img src={svg} alt="woop" />
     </span>
 );
 
@@ -43,7 +43,7 @@ const OptionView: React.FC<{
     }
 
     if (value.icon) {
-        return <IconOptionView Icon={value.icon} />;
+        return <IconOptionView svg={value.icon} />;
     }
 
     if (value.color) {

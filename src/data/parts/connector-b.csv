@@ -1,0 +1,7 @@
+value,label,vendors[]
+usb-a-silver,USB-A,zapcables
+usb-a-gold,USB-A (Gold),zapcables
+usb-c-silver,USB-C,"zapcables,jujucables"
+usb-c-gold,USB-C (Gold),zapcables
+usb-mini-silver,USB Mini,"zapcables,jujucables"
+usb-mini-gold,USB Mini (Gold),zapcables

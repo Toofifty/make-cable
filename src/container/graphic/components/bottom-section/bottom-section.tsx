@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import useStore from 'utils/hooks/useStore';
-import { defaultParts } from 'data/parts';
+import { defaultParts } from 'data';
 import Heatshrink from '../heatshrink';
 
 import './bottom-section.scss';
@@ -35,7 +35,7 @@ const BottomSection: React.FC<BottomSectionProps> = () => {
         <div className="bottom-section">
             {connectorB && (
                 <div className="bottom-section__connector-b">
-                    {connectorB.graphic && <connectorB.graphic />}
+                    <img src={connectorB.graphic} alt="doot" />
                 </div>
             )}
             {heatshrink && (

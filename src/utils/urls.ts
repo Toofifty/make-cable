@@ -1,10 +1,9 @@
-import { ALL_PARTS } from 'data/parts';
-import partOptions from 'data/parts';
+import { ALL_PART_NAMES, allParts } from 'data';
 import { RootState, PartOption } from 'utils/types';
 import { isLength } from 'utils/typecheck';
 
 export const squish = (state: RootState): string =>
-    `${ALL_PARTS.map(partName => {
+    `${ALL_PART_NAMES.map(partName => {
         const part = state.parts[partName];
         return part
             ? isLength(part.value)
@@ -16,7 +15,7 @@ export const squish = (state: RootState): string =>
 export const parse = (hash: string): RootState =>
     hash.split('/').reduce(
         (state, data, index) => {
-            const partName = ALL_PARTS[index];
+            const partName = ALL_PART_NAMES[index];
 
             if (!partName)
                 return {
@@ -24,7 +23,7 @@ export const parse = (hash: string): RootState =>
                     notes: data,
                 };
 
-            const optionValue = (partOptions as any)[partName].find(
+            const optionValue = (allParts as any)[partName].find(
                 ({ value }: PartOption) =>
                     isLength(value)
                         ? `${value.value}:${value.units}` === data

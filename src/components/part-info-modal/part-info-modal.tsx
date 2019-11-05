@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
-import Modal from 'components/modal';
-import Option from 'components/option';
+import { Modal, Option } from 'components';
 import { PartOption, PartName, Length, Vendor } from 'utils/types';
 import { halt } from 'utils/misc';
 import label, { fullUnits } from 'utils/labels';
-import vendors from 'data/vendors';
+import { vendors } from 'data';
 
 import { ReactComponent as MoreIcon } from 'assets/more-icon.svg';
 

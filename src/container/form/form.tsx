@@ -1,6 +1,6 @@
 import React from 'react';
 import Picker from 'components/picker';
-import { ALL_PARTS } from 'data/parts';
+import { ALL_PART_NAMES } from 'data';
 
 import './form.scss';
 
@@ -10,7 +10,7 @@ interface FormProps {
 
 const Form: React.FC<FormProps> = ({ allOptions }) => (
     <div className="form">
-        {ALL_PARTS.map(partName => (
+        {ALL_PART_NAMES.map(partName => (
             <Picker
                 key={partName}
                 partName={partName}
