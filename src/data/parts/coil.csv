@@ -1,3 +1,5 @@
 value,label,vendors[]
 none,No Thanks,
 coil-small,Small,"zapcables,jujucables"
+coil-medium,Medium,"zapcables,jujucables"
+coil-large,Large,"zapcables,jujucables"
