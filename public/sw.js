@@ -13,13 +13,13 @@ self.addEventListener('fetch', function() {});
 if (workbox) {
     workbox.routing.registerRoute(
         /\.(?:js|html)$/,
-        new workbox.strategies.CacheFirst()
+        new workbox.strategies.NetworkFirst()
     );
     workbox.routing.registerRoute(
         /\.css$/,
         new workbox.strategies.StaleWhileRevalidate()
     );
-    workbox.routing.registerRoute(/\//, new workbox.strategies.CacheFirst());
+    workbox.routing.registerRoute(/\//, new workbox.strategies.NetworkFirst());
 
     console.log('service worker installed');
 } else {
